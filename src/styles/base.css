@@ -1,0 +1,13 @@
+@font-face{
+    font-family: "Lato";
+    src: url('../assets/fonts/Lato-Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
+body{
+    margin: 0;
+    font-family: "Lato";
+}
+.window{
+    display: flex;
+
+}

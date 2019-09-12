@@ -1,0 +1,23 @@
+.custom-context {
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid rgba(221, 224, 228, 0.5);
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  width: 159px;
+}
+.custom-context-item {
+  padding: 3px 20px;
+  height: 43px;
+  font-size: 16px;
+  color: #535b62;
+  line-height: 43px;
+}
+
+.custom-context-item:hover{
+  background: #eeeff1;
+}
+
+.text-red{
+  color: #FF5942;
+}

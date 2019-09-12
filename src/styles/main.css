@@ -1,0 +1,70 @@
+div.content{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+}
+.main__container {
+  display: flex;
+  width: 100%;
+  /* height: 100%; */
+  /* flex-direction: column; */
+  /* align-items: flex-start; */
+  /* padding: 20px; */
+  /* border: 1px solid green; */
+}
+.folder__container {
+  display: flex;
+  flex-direction: column;
+  background: rgba(216, 216, 216, 0);
+  justify-content: center;
+  align-items: center;
+  margin: 10px 20px;
+  cursor: pointer;
+}
+
+.file__icon_container {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.folder__icon_container {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.folder__container img.file__icon {
+  width: 51px;
+  height: 72px;
+  margin: 10px;
+}
+img.folder__icon {
+  width: 69.2px !important;
+  height: 55.9px !important;
+  margin: 10px !important;
+}
+
+.folder__container > span {
+  color: #535b62;
+  font-size: 16px;
+}
+
+.folder__container span.file__type {
+  font-size: 14px;
+  color: #ffffff;
+  position: absolute;
+  bottom: 18px;
+  left: 30px;
+}
+
+.create__icon{
+  width: 96px;
+  height: 113px;
+}

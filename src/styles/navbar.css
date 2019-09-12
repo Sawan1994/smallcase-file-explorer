@@ -1,0 +1,36 @@
+.nav__bar {
+  padding: 0 20px 20px 30px;
+  display: flex;
+  align-items: center;
+}
+
+.nav__path {
+  font-size: 24px;
+  color: #81878c;
+  letter-spacing: 0;
+  text-transform: lowercase;
+}
+
+.nav__path span {
+  cursor: pointer;
+}
+
+.nav__icon {
+  width: 28.3px;
+  height: 28.3px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav__path span:last-child {
+  color: #001800;
+  line-height: 29px;
+}
+
+.search__block{
+  align-self: flex-end;
+  margin-left: auto;
+}

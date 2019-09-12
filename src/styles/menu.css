@@ -1,0 +1,11 @@
+.menu{
+    list-style-type: none;
+    /* padding-left: 19px; */
+}
+.menu__header{
+    padding-left: 19px;
+}
+
+.menu__children{
+    padding-left: 19px;
+}

@@ -1,0 +1,32 @@
+.styled_tree_node {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 13px 20px;
+  font-size: 16px;
+  color: #2f363f;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.node_label {
+  float: left;
+  align-self: flex-start;
+  margin-right: auto;
+  width: 90%;
+}
+
+.styled_tree_node:hover {
+  background: #eeeff1;
+}
+
+.node_icon {
+  font-size: 12px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-left: auto;
+}
