@@ -7,11 +7,7 @@ div.content{
 .main__container {
   display: flex;
   width: 100%;
-  /* height: 100%; */
-  /* flex-direction: column; */
-  /* align-items: flex-start; */
-  /* padding: 20px; */
-  /* border: 1px solid green; */
+  flex-wrap: wrap;
 }
 .folder__container {
   display: flex;
