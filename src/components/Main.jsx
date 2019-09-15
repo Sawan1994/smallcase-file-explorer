@@ -37,7 +37,11 @@ class Main extends PureComponent {
     const { setFolderData } = this.props;
     const { rightClicked } = this.state;
 
-    setFolderData(rightClicked);
+    if (rightClicked.type === "file") {
+      alert("File Opened.");
+    } else {
+      setFolderData(rightClicked);
+    }
 
     this.setState({
       isContextMenuOpen: false,
@@ -184,7 +188,7 @@ class Main extends PureComponent {
             />
           </div>
           {isModalVisible.createModal ? (
-            <CreateModal dismiss={setCreateModal} path={folderData.path} />
+            <CreateModal dismiss={setCreateModal} path={folderData.path} folderData={folderData}/>
           ) : null}
           {isModalVisible.infoModal ? (
             <InfoModal dismiss={setInfoModal} info={rightClicked} />

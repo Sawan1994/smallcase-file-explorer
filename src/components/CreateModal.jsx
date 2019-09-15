@@ -12,11 +12,45 @@ class CreateModal extends PureComponent {
       creator_name: "",
       created_date: "",
       size: "",
-      type: "file"
+      type: "file",
+      errors: null
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
+    this.isFileNameDuplicate = this.isFileNameDuplicate.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+  }
+
+  isFileNameDuplicate(filelName) {
+    const { folderData } = this.props;
+    const { path, children } = folderData;
+
+    return children.find(child => child === `${path}/${filelName}`)
+      ? true
+      : false;
+  }
+
+  handleNameChange(event) {
+    const target = event.target;
+    const targetName = target.name;
+    const value = target.value;
+
+    const { name, ...restErrors } = this.state.errors || {};
+
+    if (this.isFileNameDuplicate(value)) {
+      this.setState({
+        [targetName]: value,
+        errors: { ...restErrors, name: "Name should be unique" }
+      });
+
+      return;
+    }
+
+    this.setState({
+      [targetName]: value,
+      errors: { ...restErrors }
+    });
   }
 
   handleChange(event) {
@@ -37,9 +71,23 @@ class CreateModal extends PureComponent {
 
   handleCreate() {
     const { createFile, path, dismiss } = this.props;
+    const { name, creator_name, created_date, size, type } = this.state;
+
+    if (type === "file" && name.search("^[\\w]+\\.[A-Za-z]+$") === -1) {
+      this.setState(prevState => ({
+        errors: { ...prevState.errors, name: "Filename should contain extension" }
+      }));
+
+      return;
+    }
+
     const data = {
-      ...this.state,
-      path: path + "/" + this.state.name,
+      name,
+      creator_name,
+      created_date,
+      size,
+      type,
+      path: path + "/" + name,
       children: []
     };
 
@@ -49,7 +97,7 @@ class CreateModal extends PureComponent {
 
   render() {
     const { dismiss } = this.props;
-    const { type } = this.state;
+    const { type, errors } = this.state;
 
     return (
       <Modal title="Create New" dismiss={dismiss}>
@@ -72,8 +120,11 @@ class CreateModal extends PureComponent {
             type="text"
             placeholder="Name"
             name="name"
-            onChange={this.handleChange}
+            onChange={this.handleNameChange}
           />
+          {errors && errors.name && (
+            <span className="error-text">{errors.name}</span>
+          )}
           <input
             type="text"
             placeholder="Creator"
@@ -92,7 +143,17 @@ class CreateModal extends PureComponent {
             name="created_date"
             onChange={this.handleChange}
           />
-          <button className="btn btn-blue" onClick={this.handleCreate}>Create</button>
+          <button
+            className={
+              errors && Object.keys(errors).length > 0
+                ? "btn disabled"
+                : "btn btn-blue"
+            }
+            onClick={this.handleCreate}
+            disabled={errors && Object.keys(errors).length > 0}
+          >
+            Create
+          </button>
         </div>
       </Modal>
     );
